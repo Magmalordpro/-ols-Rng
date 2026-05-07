@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>CodePen - A Pen by Chicken</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div id="sidebar">
+    <div class="tabs">
+        <button id="btn-shop" class="tab-btn active">SHOP</button>
+        <button id="btn-inv" class="tab-btn">COLLECTION</button>
+        <button id="btn-settings" class="tab-btn">⚙️</button>
+    </div>
+
+    <div id="shop-tab" class="scroll">
+        <div class="stat-card">
+            <div class="flex-row">
+                <span class="m-txt" id="money-display">$0</span>
+                <button id="mute-btn">🔊</button>
+            </div>
+            <span id="luck-display" style="color:#00ffcc">🍀 Total Luck: x1</span>
+        </div>
+
+        <div class="buy-selector">
+            <span>BULK BUY:</span>
+            <div class="qty-grid">
+                <button class="qty-btn active" data-qty="1">1</button>
+                <button class="qty-btn" data-qty="10">10</button>
+                <button class="qty-btn" data-qty="50">50</button>
+                <button class="qty-btn" data-qty="max">MAX</button>
+            </div>
+        </div>
+        
+        <button class="collapse-btn" onclick="toggleCollapse('gloves-container')">🧤 GLOVES <span id="g-arrow">▼</span></button>
+        <div id="gloves-container" class="collapsible"></div>
+        
+        <button class="collapse-btn" onclick="toggleCollapse('potions-container')">🧪 POTIONS <span id="p-arrow">▼</span></button>
+        <div id="potions-container" class="collapsible"></div>
+    </div>
+
+    <div id="inv-tab" class="scroll" style="display:none">
+        <div id="inventory-container"></div>
+    </div>
+
+    <div id="settings-tab" class="scroll" style="display:none">
+        <h3 style="margin-top:0">SETTINGS</h3>
+        <label class="setting-item">
+            <input type="checkbox" id="skip-known"> Skip known aura animations
+        </label>
+        <p style="font-size:10px; color:#555; margin-top:20px">Game saves automatically.</p>
+    </div>
+</div>
+
+<div id="game">
+    <canvas id="canvas"></canvas>
+    
+    <div id="char-container">
+        <div id="character-glow"></div>
+        <svg id="char-svg" viewBox="0 0 100 100">
+            <circle cx="50" cy="25" r="15" fill="white"/>
+            <path d="M50 40 L50 75 L30 95 M50 75 L70 95 M30 55 L70 55" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <!-- Cinematic Screen -->
+    <div id="cutscene" class="cutscene-hide">
+        <div id="flash"></div>
+        <div id="cutscene-content">
+            <div id="cs-msg">FREQUENCY FOUND...</div>
+            <h1 id="cs-name" style="opacity:0">AURA</h1>
+        </div>
+    </div>
+
+    <div id="aura-display-box">
+        <div id="aura-rar">Click Roll</div>
+        <h1 id="aura-name">AURA RNG</h1>
+    </div>
+    
+    <button id="roll-btn">ROLL</button>
+    <div class="bonus">SUPER ROLL: <span id="count-display">0</span>/10</div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
